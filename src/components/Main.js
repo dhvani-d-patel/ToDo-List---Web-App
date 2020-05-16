@@ -20,7 +20,9 @@ class Main extends React.Component {
                 }
                 return todo
             })
-            return updatedTodos
+            return {
+                todos: updatedTodos
+            }
         })
     }
 
