@@ -13,16 +13,14 @@ class Main extends React.Component {
     }
 
     handleChange(id){
-        this.setState( prevState => {
-            const updatedTodos = this.state.todos.map(todo =>{
+        this.setState(prevState => {
+            const updatedTodos = this.state.todos.map(todo => {
                 if(todo.id === id){
                     todo.completed = !todo.completed
                 }
                 return todo
             })
-            return {
-                todos: updatedTodos
-            }
+            return updatedTodos
         })
     }
 
