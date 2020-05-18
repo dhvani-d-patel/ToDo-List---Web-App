@@ -1,11 +1,15 @@
-import React from "react"
+import React from 'react';
 
-function Footer() {
-    return (
-        <footer>
-            Kal karein so aaj kar, aaj karein so ab!
-        </footer>
-    )
+class Footer extends React.Component {
+    constructor() {
+        super();
+    }
+
+    render() {
+        return (
+            <footer className="container text-center"><h4>Dream Big Everyday.<ion-icon name="rocket-outline" size="large" /></h4></footer>
+        )
+    }
 }
 
-export default Footer
+export default Footer;
