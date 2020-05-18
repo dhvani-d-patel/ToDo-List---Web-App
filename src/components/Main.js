@@ -17,6 +17,7 @@ class Main extends React.Component {
         this.handleCompleted = this.handleCompleted.bind(this)
         this.deleteTask = this.deleteTask.bind(this)
         this.setUpdate = this.setUpdate.bind(this)
+        this.clearAll = this.clearAll.bind(this)
     }
 
     handleChange(e) {
@@ -77,16 +78,21 @@ class Main extends React.Component {
             tasks: tasks
         })
     }
+
+    clearAll(){
+        this.setState( {tasks: []})
+    }
     render() {
         const tasksUpdate = this.state.tasks.map( item => <TodoItem key={item.key} task={item} handleChange={this.handleCompleted} deleteTask={this.deleteTask} setUpdate={this.setUpdate}/>)
         return (
             <div className="container h-100" id="MainBox">
                 <form onSubmit={this.addTask}>
                     <div className="form-inline">
-                        <div className="form-group mx-sm-3 mb-2" >
+                        <div className="form-group mx-sm-4 mb-4" >
                             <input type="text" placeholder="Enter a task" className="form-control" size="50" value={this.state.currentTask.text} onChange={this.handleChange}/>
                         </div>
-                        <button type = "submit" className="btn btn-dark mb-2" > Add </button>
+                        <button type="submit" className="btn btn-dark mb-4 mx-sm-4" > Add </button>
+                        {this.state.tasks.length > 0 ? <button type="reset" className="btn btn-danger mb-4" onClick={this.clearAll}>Clear All</button> : null}
                         
                     </div>
                     
